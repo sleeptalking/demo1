@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">demo</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment  </string>
+    <string name="perminssion">权限提醒</string>
+    <string name="status">状态</string>
+    <string name="shop_name">店铺名称</string>
+    <string name="operation">操作</string>
+    <string name="verification_code">验证码</string>
+    <string name="thumbnail">缩略图</string>
+    <string name="shop_desc">店铺简介</string>
+    <string name="phone_num">联系电话</string>
+    <string name="shop_address">店铺地址</string>
+    <string name="shop_area">所属区域</string>
+    <string name="shop_category">店铺分类</string>
+    <string name="shop_info">店铺信息</string>
+    <string name="back">返  回</string>
+    <string name="submit">提  交</string>
+    <string name="please_input_shop_name">请输入店铺名称</string>
+    <string name="please_input_shop_address">请输入店铺地址</string>
+    <string name="please_input_shop_phone">请输入联系电话</string>
+    <string name="please_input_code">请输入验证码</string>
+    <string name="set_password">修改密码</string>
+    <string name="exit">退出系统</string>
+    <string name="category">类别</string>
+    <string name="priority">优先级</string>
+    <string name="add">新  增</string>
+    <string name="delete">删  除</string>
+    <string name="product_name">商品名称</string>
+    <string name="product_category">商品分类</string>
+    <string name="normal_price">原价</string>
+    <string name="promotion_price">现价</string>
+    <string name="integration">积分</string>
+    <string name="details_picture">详情图片</string>
+    <string name="product_info">商品管理</string>
+</resources>

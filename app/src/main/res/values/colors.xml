@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4889db</color>
+    <color name="colorPrimaryDark">#4889db</color>
+    <color name="colorAccent">#4889db</color>
+    <color name="primary">#4889db</color>
+    <color name="primary_dark">#4889db</color>
+    <color name="primary_light">#B3E5FC</color>
+    <color name="accent">#4889db</color>
+    <!--<color name="accent">#FF5722</color>-->
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+
+    <!-- 窗口颜色 -->
+    <color name="window_color">#FAFAFA</color>
+
+    <!-- 灰色背景ebebeb -->
+    <color name="gray">#ebebeb</color><!--灰色 -->
+    <color name="black">#000000</color><!--黑色 -->
+    <color name="white">#ffffff</color><!--白色 -->
+    <color name="blue">#0894EC</color><!--蓝色-->
+    <color name="red">#F6383A</color><!--红色-->
+    <color name="green">#4CD964</color><!--红色-->
+    <!--微信页分割线 -->
+    <color name="view_line">#ffcfd4da</color>
+    <!--默认文字统一色调  -->
+    <color name="main_text_color">#000000</color>
+    <!-- 顶部导航统一色调 -->
+    <color name="main_title_bg_color">#4889db</color>
+    <!-- 按钮背景统一色调 -->
+    <color name="main_btn_color">#4b8bd8</color>
+    <!-- 按钮背景统一色调 -->
+    <color name="main_btn_color_press">#1959a6</color>
+
+    <color name="btn_enable">#66CC66</color>
+    <color name="btn_press">#99FF99</color>
+    <color name="btn_disable">#CCCCCC</color>
+
+    <color name="Calendar_WeekBgColor">#EFE7DE</color>
+    <color name="Calendar_WeekFontColor">#8C8A8C</color>
+    <color name="Calendar_DayBgColor">#F7F7F7</color>
+    <color name="isHoliday_BgColor">#E0E0E0</color>
+    <color name="unPresentMonth_FontColor">#8C8A8C</color>
+    <color name="isPresentMonth_FontColor">#000000</color>
+    <color name="isToday_BgColor">#EBDCC1</color>
+    <color name="isDuty_BgColor">#46BB96</color>
+    <color name="specialReminder">#FF0000</color>
+
+    <!-- 网络设置中的选择框颜色渐变 -->
+    <color name="setting_listview_top">#f5f5f5</color>
+    <color name="setting_listview_bottom">#d0d0d0</color>
+    <color name="zhibanitembg">#E5E5E5</color>
+</resources>

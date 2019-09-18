@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!-- 取消界面转场动画使用-->
+    <style name="Theme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowAnimationStyle">@style/Animation</item>
+        <!--<item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>-->
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Animation">
+        <!--<item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>-->
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <style name="Splash" parent="Theme">
+        <item name="android:windowBackground">@mipmap/ic_launcher_round</item>
+    </style>
+
+    <style name="button_bg_red">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:layout_margin">@dimen/dp_10</item>
+        <item name="android:background">@drawable/button_circle_shape_red</item>
+    </style>
+    <style name="button_bg_blue">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:layout_margin">@dimen/dp_10</item>
+        <item name="android:background">@drawable/button_circle_shape_blue</item>
+    </style>
+    <style name="button_bg_green">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:layout_margin">@dimen/dp_10</item>
+        <item name="android:background">@drawable/button_circle_shape_green</item>
+    </style>
+
+
+</resources>
