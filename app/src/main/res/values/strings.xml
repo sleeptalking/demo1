@@ -39,4 +39,6 @@
     <string name="integration">积分</string>
     <string name="details_picture">详情图片</string>
     <string name="product_info">商品管理</string>
+    <string name="add_shop">增加店铺</string>
+    <string name="add_product">增加商品</string>
 </resources>

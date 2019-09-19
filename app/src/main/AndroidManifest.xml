@@ -44,6 +44,7 @@
         <activity android:name=".activity.ShopManagementActivity" />
         <activity android:name=".activity.AddShopActivity" />
         <activity android:name=".activity.ShopListActivity" />
+        <activity android:name=".activity.ProductListActivity" />
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/Splash">
