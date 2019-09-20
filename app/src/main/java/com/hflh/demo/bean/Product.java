@@ -1,6 +1,5 @@
 package com.hflh.demo.bean;
 
-import java.util.Date;
 import java.util.List;
 
 public class Product {
@@ -12,8 +11,8 @@ public class Product {
     private String normalPrice;
     private String promotionPrice;
     private Integer priority;
-    private Date createTime;
-    private Date lastEditTime;
+    private Long createTime;
+    private Long lastEditTime;
     //-1.不可用  0.下架  1.在前端展示系统展示
     private Integer enableStatus;
 
@@ -71,19 +70,19 @@ public class Product {
         this.priority = priority;
     }
 
-    public Date getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Date getLastEditTime() {
+    public Long getLastEditTime() {
         return lastEditTime;
     }
 
-    public void setLastEditTime(Date lastEditTime) {
+    public void setLastEditTime(Long lastEditTime) {
         this.lastEditTime = lastEditTime;
     }
 

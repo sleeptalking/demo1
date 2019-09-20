@@ -39,7 +39,7 @@ public class ShopManagementActivity extends BaseActivity {
     }
     @OnClick(R.id.bt_shop_management)
     public void shopManagement() {
-        Intent intent = new Intent(this, AddProductActivity.class);
+        Intent intent = new Intent(this, ProductListActivity.class);
         intent.putExtra("shopId",shopId);
         IntentUtils.toActivity(this,intent);
     }

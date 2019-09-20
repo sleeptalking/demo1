@@ -74,7 +74,7 @@ public class LogUtils {
     public static void l(String msg) {
         if (!isDebug) return;
         String tag = generateTag();
-        int segmentSize = 2 * 1024;
+        int segmentSize = 2*1024;
         long length = msg.length();
         if (length <= segmentSize ) {// 长度小于等于限制直接打印
             Log.i(tag, msg);

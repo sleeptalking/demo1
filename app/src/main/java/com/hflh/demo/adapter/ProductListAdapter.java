@@ -1,7 +1,6 @@
 package com.hflh.demo.adapter;
 
 import android.app.Activity;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -14,6 +13,7 @@ import java.util.List;
 
 public class ProductListAdapter extends BaseQuickAdapter<Product, BaseViewHolder> {
     private Activity context;
+
     public ProductListAdapter(int layoutResId, @Nullable List<Product> data, Activity context) {
         super(layoutResId, data);
         this.context = context;
@@ -21,11 +21,12 @@ public class ProductListAdapter extends BaseQuickAdapter<Product, BaseViewHolder
 
     @Override
     protected void convert(BaseViewHolder helper, Product item) {
-        helper.setText(R.id.tv_shop_name, item.getProductName());
-        if (item.getEnableStatus() == 1) {
-            helper.<TextView>getView(R.id.tv_shop_operation).setTextColor(context.getResources().getColor(R.color.blue));
-            helper.addOnClickListener(R.id.tv_shop_operation);
-        }
+        helper.setText(R.id.tv_product_name, item.getProductName());
+        int i = item.getPriority();
+        helper.setText(R.id.tv_product_priority, ""+i);
+        helper.addOnClickListener(R.id.tv_product_edit);
+        helper.addOnClickListener(R.id.tv_product_preview);
+        helper.addOnClickListener(R.id.tv_product_off);
     }
 
 }

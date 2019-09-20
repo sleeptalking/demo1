@@ -41,4 +41,7 @@
     <string name="product_info">商品管理</string>
     <string name="add_shop">增加店铺</string>
     <string name="add_product">增加商品</string>
+    <string name="preview">预览</string>
+    <string name="off">下架</string>
+    <string name="edit">编辑</string>
 </resources>

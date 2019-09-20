@@ -2,18 +2,21 @@ package com.hflh.demo.contract;
 
 import com.hflh.demo.base.BaseView;
 import com.hflh.demo.bean.Product;
-import com.hflh.demo.bean.ProductExecution;
+import com.hflh.demo.bean.Result;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
 public interface ProductListContract {
 
     interface Model {
-        Observable<ProductExecution> getProductList(String productStr,int pageIndex,int pageSize);
+        Observable<Result<List<Product>>> getProductList(String productStr, int pageIndex, int pageSize);
     }
 
     interface View extends BaseView {
-        void getProductList(ProductExecution productExecution);
+        void getProductListSuccess(Result<List<Product>> productExecution);
+        void getProductListFailure(Result<List<Product>> productExecution);
     }
 
     interface Presenter {

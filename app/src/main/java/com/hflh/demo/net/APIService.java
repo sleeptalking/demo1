@@ -3,8 +3,9 @@ package com.hflh.demo.net;
 
 import com.hflh.demo.bean.CodeImageBean;
 import com.hflh.demo.bean.LoginBean;
+import com.hflh.demo.bean.Product;
 import com.hflh.demo.bean.ProductCategoryListBean;
-import com.hflh.demo.bean.ProductExecution;
+import com.hflh.demo.bean.Result;
 import com.hflh.demo.bean.ShopInfoBean;
 import com.hflh.demo.bean.ShopListBean;
 import com.hflh.demo.bean.ShopManagementBean;
@@ -119,5 +120,5 @@ public interface APIService {
 
     @FormUrlEncoded
     @POST("/o2o/shopadmin/getproductlist")
-    Observable<ProductExecution> getProductList(@Field("productStr") String productStr,@Field("pageIndex")int pageIndex,@Field("pageSize")int pageSize);
+    Observable<Result<List<Product>>> getProductList(@Field("productStr") String productStr, @Field("pageIndex")int pageIndex, @Field("pageSize")int pageSize);
 }

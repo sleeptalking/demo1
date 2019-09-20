@@ -1,14 +1,12 @@
 package com.hflh.demo.bean;
 
-import java.util.Date;
-
 public class ProductImg {
 
     private Long productImgId;
     private String imgAddr;
     private String imgDesc;
     private Integer priority;
-    private Date createTime;
+    private Long createTime;
     private Long productId;
 
     public Long getProductImgId() {
@@ -43,11 +41,11 @@ public class ProductImg {
         this.priority = priority;
     }
 
-    public Date getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
