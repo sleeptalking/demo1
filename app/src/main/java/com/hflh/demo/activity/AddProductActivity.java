@@ -17,12 +17,14 @@ import com.hflh.demo.bean.CodeImageBean;
 import com.hflh.demo.bean.Product;
 import com.hflh.demo.bean.ProductCategory;
 import com.hflh.demo.bean.ProductCategoryListBean;
+import com.hflh.demo.bean.Result;
 import com.hflh.demo.contract.AddProductContract;
 import com.hflh.demo.presenter.AddProductPresenter;
 import com.hflh.demo.util.FileUtil;
 import com.hflh.demo.util.ImageUtils;
 import com.hflh.demo.util.IntentUtils;
 import com.hflh.demo.util.JsonUtils;
+import com.hflh.demo.util.LogUtils;
 import com.hflh.demo.util.StringUtils;
 import com.hflh.demo.util.ToastUtils;
 
@@ -78,10 +80,15 @@ public class AddProductActivity extends BaseMvpActivity<AddProductPresenter> imp
     public void initView() {
         tvTitle.setText(R.string.product_info);
         shopId = getIntent().getLongExtra("shopId",-1);
+        productId = getIntent().getLongExtra("productId",-1);
+
         mPresenter = new AddProductPresenter();
         mPresenter.attachView(this);
         mPresenter.getCodeImage();
         mPresenter.getProductCategoryList(shopId);
+        if(productId != -1){
+            mPresenter.getProductById(productId);
+        }
         initSpinner();
     }
 
@@ -234,6 +241,11 @@ public class AddProductActivity extends BaseMvpActivity<AddProductPresenter> imp
     }
 
     @Override
+    public void modifyProduct(Result<Product> productResult) {
+
+    }
+
+    @Override
     public void getCodeImage(CodeImageBean bean) {
         sessionId = "JSESSIONID="+bean.getSessionId();
         ivCode.setImageBitmap(ImageUtils.stringtoBitmap(bean.getCodeImage()));
@@ -247,6 +259,13 @@ public class AddProductActivity extends BaseMvpActivity<AddProductPresenter> imp
         productCategoryAdapter.notifyDataSetChanged();
         currentproductCategory = bean.getData().get(0);
 
+
+    }
+
+    @Override
+    public void getProductById(Result<Product> productResult) {
+
+        LogUtils.i("getProductById///"+productResult.isSuccess());
 
     }
 }

@@ -2,7 +2,9 @@ package com.hflh.demo.presenter;
 
 import com.hflh.demo.base.BasePresenter;
 import com.hflh.demo.bean.CodeImageBean;
+import com.hflh.demo.bean.Product;
 import com.hflh.demo.bean.ProductCategoryListBean;
+import com.hflh.demo.bean.Result;
 import com.hflh.demo.contract.AddProductContract;
 import com.hflh.demo.model.AddProductModel;
 import com.hflh.demo.net.RxScheduler;
@@ -71,6 +73,11 @@ public class AddProductPresenter extends BasePresenter<AddProductContract.View> 
     }
 
     @Override
+    public void modifyProduct(String header, Product product, String verifyCodeActual, String path, List<String> images) {
+
+    }
+
+    @Override
     public void getProductCategoryList(long shopId) {
         model.getProductCategoryList(shopId).compose(RxScheduler.<ProductCategoryListBean>Obs_io_main()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ProductCategoryListBean>() {
@@ -120,6 +127,34 @@ public class AddProductPresenter extends BasePresenter<AddProductContract.View> 
 
                     }
                 });
+
+    }
+
+    @Override
+    public void getProductById(Long productId) {
+        model.getProductById(productId).compose(RxScheduler.<Result<Product>>Obs_io_main()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result<Product>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Result<Product> productResult) {
+                        mView.getProductById(productResult);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
 
     }
 }

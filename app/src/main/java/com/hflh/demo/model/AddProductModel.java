@@ -1,7 +1,9 @@
 package com.hflh.demo.model;
 
 import com.hflh.demo.bean.CodeImageBean;
+import com.hflh.demo.bean.Product;
 import com.hflh.demo.bean.ProductCategoryListBean;
+import com.hflh.demo.bean.Result;
 import com.hflh.demo.contract.AddProductContract;
 import com.hflh.demo.net.RetrofitClient;
 
@@ -15,6 +17,17 @@ public class AddProductModel implements AddProductContract.Model {
     @Override
     public Observable<String> addProduct(String header, RequestBody shopId,RequestBody productStr, RequestBody verifyCodeActual, MultipartBody.Part thumbnail, List<MultipartBody.Part> list) {
         return RetrofitClient.getInstance().getApi().addProduct(header,shopId,productStr,thumbnail,verifyCodeActual,list);
+    }
+
+    @Override
+    public Observable<Result<Product>> modifyProduct(String header, RequestBody shopId, RequestBody productStr, RequestBody verifyCodeActual, MultipartBody.Part thumbnail, List<MultipartBody.Part> list) {
+        return RetrofitClient.getInstance().getApi().modifyProduct(header,productStr,thumbnail,verifyCodeActual,list);
+    }
+
+
+    @Override
+    public Observable<Result<Product>> getProductById(Long productId) {
+        return RetrofitClient.getInstance().getApi().getProductById(productId);
     }
 
     @Override

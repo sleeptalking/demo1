@@ -12,7 +12,6 @@ import com.hflh.demo.bean.ShopManagementBean;
 import com.hflh.demo.bean.YuQingGaoWeiBean;
 
 import java.util.List;
-import java.util.Map;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
@@ -26,7 +25,6 @@ import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-import retrofit2.http.PartMap;
 
 /**
  * @author azheng
@@ -74,21 +72,7 @@ public interface APIService {
     @POST("o2o/shopadmin/registershop")
     Observable<Object> addShop(@Header("Cookie") String lang, @Part("shopStr")RequestBody shopStr,@Part("verifyCodeActual")RequestBody verifyCodeActual
             ,@Part MultipartBody.Part shopImg);
-    /**
-     * @return
-     */
-    @Multipart
-    @POST("o2o/shopadmin/addproduct")
-    Observable<String> addProduct(@Header("Cookie") String lang, @Part("productStr")RequestBody productStr, @Part("thumbnail")RequestBody thumbnail,
-                                  @Part("verifyCodeActual")RequestBody verifyCodeActual, @PartMap Map<String,RequestBody> map);
-    /**
-    /**
-     * @return
-     */
-    @Multipart
-    @POST("o2o/shopadmin/addproduct")
-    Observable<String> addProduct(@Header("Cookie") String lang, @Part("shopId")RequestBody shopId, @Part("productStr")RequestBody productStr, @Part MultipartBody.Part thumbnail,
-                                  @Part("verifyCodeActual")RequestBody verifyCodeActual, @Part List<MultipartBody.Part> list);
+
     /**
      * @return
      */
@@ -118,7 +102,30 @@ public interface APIService {
     @POST("/o2o/shopadmin/getproductcategorylist")
     Observable<ProductCategoryListBean> getProductCategoryList(@Field("shopId") Long shopId);
 
+    /*@Multipart
+    @POST("o2o/shopadmin/addproduct")
+    Observable<String> addProduct(@Header("Cookie") String lang, @Part("productStr")RequestBody productStr, @Part("thumbnail")RequestBody thumbnail,
+                                  @Part("verifyCodeActual")RequestBody verifyCodeActual, @PartMap Map<String,RequestBody> map);*/
+    /**
+     /**
+     * @return
+     */
+    @Multipart
+    @POST("o2o/shopadmin/addproduct")
+    Observable<String> addProduct(@Header("Cookie") String lang, @Part("shopId")RequestBody shopId, @Part("productStr")RequestBody productStr, @Part MultipartBody.Part thumbnail,
+                                  @Part("verifyCodeActual")RequestBody verifyCodeActual, @Part List<MultipartBody.Part> list);
+
     @FormUrlEncoded
     @POST("/o2o/shopadmin/getproductlist")
     Observable<Result<List<Product>>> getProductList(@Field("productStr") String productStr, @Field("pageIndex")int pageIndex, @Field("pageSize")int pageSize);
+
+    @FormUrlEncoded
+    @POST("/o2o/shopadmin/getproductbyid")
+    Observable<Result<Product>> getProductById( @Field("productId")Long productId);
+
+    @Multipart
+    @POST("/o2o/shopadmin/modityproduct")
+    Observable<Result<Product>> modifyProduct(@Header("Cookie") String lang, @Part("productStr")RequestBody productStr, @Part MultipartBody.Part thumbnail,
+                                              @Part("verifyCodeActual")RequestBody verifyCodeActual, @Part List<MultipartBody.Part> list);
+
 }
