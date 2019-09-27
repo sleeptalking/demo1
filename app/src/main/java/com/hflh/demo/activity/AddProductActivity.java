@@ -19,6 +19,7 @@ import com.hflh.demo.bean.ProductCategory;
 import com.hflh.demo.bean.ProductCategoryListBean;
 import com.hflh.demo.bean.Result;
 import com.hflh.demo.contract.AddProductContract;
+import com.hflh.demo.net.RetrofitClient;
 import com.hflh.demo.presenter.AddProductPresenter;
 import com.hflh.demo.util.FileUtil;
 import com.hflh.demo.util.ImageUtils;
@@ -27,6 +28,7 @@ import com.hflh.demo.util.JsonUtils;
 import com.hflh.demo.util.LogUtils;
 import com.hflh.demo.util.StringUtils;
 import com.hflh.demo.util.ToastUtils;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -148,15 +150,23 @@ public class AddProductActivity extends BaseMvpActivity<AddProductPresenter> imp
             ToastUtils.showToast(this,"请输入验证码",false);
             return;
         }
-        if (StringUtils.isNullString(filePath)){
-            ToastUtils.showToast(this,"请选择缩略图",false);
-            return;
+        if(productId == -1){
+            if (StringUtils.isNullString(filePath)){
+                ToastUtils.showToast(this,"请选择缩略图",false);
+                return;
+            }
+            if (images == null || images.size() == 0){
+                ToastUtils.showToast(this,"请选择详情图片",false);
+                return;
+            }
         }
-        if (images == null || images.size() == 0){
-            ToastUtils.showToast(this,"请选择详情图片",false);
-            return;
+
+        if(productId != -1){
+            mPresenter.modifyProduct(sessionId, product,code,filePath,images);
+        }else{
+            mPresenter.addProduct(sessionId, ""+shopId,JsonUtils.serialize(product),code,filePath,images);
         }
-        mPresenter.addProduct(sessionId, ""+shopId,JsonUtils.serialize(product),code,filePath,images);
+
 
     }
 
@@ -243,6 +253,8 @@ public class AddProductActivity extends BaseMvpActivity<AddProductPresenter> imp
     @Override
     public void modifyProduct(Result<Product> productResult) {
 
+        Log.i("TAG", "modifyProduct: "+productResult.isSuccess());
+
     }
 
     @Override
@@ -259,13 +271,24 @@ public class AddProductActivity extends BaseMvpActivity<AddProductPresenter> imp
         productCategoryAdapter.notifyDataSetChanged();
         currentproductCategory = bean.getData().get(0);
 
-
     }
 
     @Override
     public void getProductById(Result<Product> productResult) {
+        Product product = productResult.getData();
+
+        etName.setText(product.getProductName());
+        etPriority.setText(""+product.getPriority());
+       // etIntegration.setText(product.get());
+        etNormal.setText(product.getNormalPrice());
+        etPromotion.setText(product.getPromotionPrice());
+        Picasso.with(this).load( RetrofitClient.baseUrl+"o2o/"+productResult.getData().getImgAddr().replace("\\","/")).into(ivThumbnail);
+        Picasso.with(this).load(RetrofitClient.baseUrl+"o2o/"+productResult.getData().getProductImgList().get(0).getImgAddr().replace("\\","/")).into(ivDetailsPicture);
 
         LogUtils.i("getProductById///"+productResult.isSuccess());
+
+
+
 
     }
 }

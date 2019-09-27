@@ -20,7 +20,7 @@ public class AddProductModel implements AddProductContract.Model {
     }
 
     @Override
-    public Observable<Result<Product>> modifyProduct(String header, RequestBody shopId, RequestBody productStr, RequestBody verifyCodeActual, MultipartBody.Part thumbnail, List<MultipartBody.Part> list) {
+    public Observable<Result<Product>> modifyProduct(String header, RequestBody productStr, RequestBody verifyCodeActual, MultipartBody.Part thumbnail, List<MultipartBody.Part> list) {
         return RetrofitClient.getInstance().getApi().modifyProduct(header,productStr,thumbnail,verifyCodeActual,list);
     }
 
